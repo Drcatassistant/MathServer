@@ -1,5 +1,5 @@
 # Ex.05 Design a Website for Server Side Processing
-## Date:29-04-24
+## Date: 01-05-2024
 
 ## AIM:
 To design a website to find surface area of a Right Cylinder in server side.
@@ -31,7 +31,7 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 
-**math.html**
+math.html
 ```
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@ Publish the website in the given URL.
 <style type="text/css">
 body
 {
-    background-color: red(159, 223, 255);
+    background-color: orange;
 }
 .edge {
     width: 100%;
@@ -52,11 +52,11 @@ body
 }
 .box {
     display: inline-block;
-    border:double blue 10px;
+    border:double pink 10px;
     width: 500px;
     min-height: 300px;
     font-size: 20px;
-    background-color:bisque;
+    background-color:#F1F3FFFF;
 }
 .formelt {
     color: black;
@@ -65,16 +65,16 @@ body
     margin-bottom: 6px;
 }
 h1 {
-    color: grey;
+    color: black;
     padding-top: 20px;
 }
 </style>
 </head>
-<body style="background-color:darksalmon;">
+<body style="background-color:orange">
 <div class="edge">
     <div class="box">
         <h1>Surface Area of Right cylinder</h1>
-        <h3>GURU RAGHAV V (212223220027)</h3>
+        <h3>JACKSON RAJ (212223040071)</h3>
         <form method="POST">
             {% csrf_token %}
             <div class="formelt">
@@ -95,7 +95,21 @@ h1 {
 </body>
 </html>
 ```
-**views.py**
+
+urls.py
+```
+from django.contrib import admin
+from django.urls import path
+from mathapp import views
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('surfacearea/',views.cylarea,name="surfacearea"),
+    path('',views.cylarea,name="areaofsurfaceroot"),
+]
+
+```
+
+views.py
 ```
 from django.shortcuts import render
 def cylarea(request):
@@ -117,30 +131,13 @@ def cylarea(request):
         print('Area=',area)
     return render(request,'mathapp/math.html',context)
 ```
-
-**urls.py**
-```
-from django.contrib import admin
-from django.urls import path
-from mathapp import views
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('surfacearea/',views.cylarea,name="surfacearea"),
-    path('',views.cylarea,name="areaofsurfaceroot"),
-]
-
-```
-
 ## SERVER SIDE PROCESSING:
 
-![alt text](<Screenshot 2024-04-15 200459.png>)
-
-
+![Screenshot 2024-05-10 084909](https://github.com/Drcatassistant/MathServer/assets/144364462/d8c5dac0-dc02-491b-b290-368b72d4fb70)
 
 ## HOMEPAGE:
+![Screenshot 2024-05-10 084846](https://github.com/Drcatassistant/MathServer/assets/144364462/5eb1fa13-f8f3-4d9e-be4d-682f0ad7b936)
 
-
-![alt text](<Screenshot 2024-04-15 200519.png>)
 
 ## RESULT:
 The program for performing server side processing is completed successfully.
